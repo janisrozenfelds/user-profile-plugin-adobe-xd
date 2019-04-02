@@ -1,7 +1,7 @@
 //
 // Plugin for Adobe XD
 // Author: Janis janisrozenfelds
-// - Web: www.janisrozenfelds.com
+// - Web: www.janisrozenfelds.com/adobe-xd
 // - Twitter: roziits
 // - Email: janis.rozenfelds@gmail.com
 //
@@ -11,10 +11,6 @@ const { API_URL } = require("./config/config.js")
 const { alert, error } = require("./lib/dialogs.js");
 const { ImageFill } = require("scenegraph");
 const h = require("./lib/h");
-
-
-
-console.log("Plugin running!🚀")
 
 
 const selectedShapes = null;
