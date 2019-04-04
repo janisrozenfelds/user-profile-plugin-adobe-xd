@@ -1,52 +1,46 @@
 {
-    "id": "2418aad9",
-    "name": "User Profile",
-    "version": "0.0.1",
-    "description": "User Profile plugin for Adobe XD enables designers to displays beautiful generated avatars 📸  in your design prototype.\n\nDesigned for designers and optimized to be simple and fast.\n\nReach out to janis.rozenfelds@gmail.com with any question or just say hello 🙂.",
-    "summary": "User Profile plugin displays beautiful generated avatars 📸 ",
-    "releaseNotes": "Initial version",
-    "keywords": [
-      "user",
-      "icon",
-      "img",
-      "user profile",
-      "face"
-    ],
-    "languages": "en",
-    "website": "http://www.janisrozenfelds.com/adobe-xd",
-    "author": "Janis Rozenfelds",
-    "helpUrl": "http://www.janisrozenfelds.com/adobe-xd/how-to-use",
-    "host": {
-        "app": "XD",
-        "minVersion": "13.0.0"
-    },
-    "icons": [
-      { "path": "images/icon@1x.png", "width": 48, "height": 48 },
-      { "path": "images/icon@2x.png", "width": 96, "height": 96 },
-      { "path": "images/icon@3x.png", "width": 144, "height": 144 },
-      { "path": "images/icon@4x.png", "width": 192, "height": 192 },
-      { "path": "images/icon-512x512.png", "width": 512, "height": 512 }
-    ],
-    "uiEntryPoints" : [
-      {
-        "type": "menu",
-        "label": "User Profile",
-        "menuItems": [
-          {
-            "type": "menu",
-            "label": "Fill with user images",
-            "shortcut": {
-              "mac": "Cmd+Shift+U",
-              "win": "Ctrl+Shift+U"
-            },
-            "commandId": "imageFillCommand"
-          },
-          {
-            "type": "menu",
-            "label": "About",
-            "commandId": "aboutCommand"
-          }
-        ]
-      }
-    ]
+  "summary" : "Displays generated avatars",
+  "website" : "http://janisrozenfelds.com/adobe-xd",
+  "keywords" : [ "face", "icon", "productivity" ],
+  "languages" : [ "en" ],
+  "author" : "Janis Rozenfelds",
+  "description" : "User Profile plugin for Adobe XD enables designers to displays beautiful generated avatars in your design prototype.\n\nDesigned for designers and optimized to be simple and fast.\n\nReach out to janis.rozenfelds@gmail.com with any question or just say hello.",
+  "helpUrl" : "http://janisrozenfelds.com/adobe-xd/how-to-use",
+  "main" : "main.js",
+  "icons" : [
+    { "path" : "images/icon@1x.png", "width" : 48, "height" : 48 },
+    { "path" : "images/icon@2x.png", "width" : 96, "height" : 96 },
+    { "path" : "images/icon@3x.png", "width" : 144, "height" : 144 },
+    { "path" : "images/icon@4x.png", "width" : 192, "height" : 192 }
+  ],
+  "version" : "0.0.1",
+  "releaseNotes" : "Initial version",
+  "name" : "User Profile",
+  "host" : {
+    "app" : "XD",
+    "minVersion" : "13.0"
+  },
+  "id" : "2418aad9",
+  "uiEntryPoints" : [
+     {
+       "label" : "User Profile",
+       "type" : "menu",
+       "menuItems": [
+         {
+           "type": "menu",
+           "label": "Fill with user images",
+           "shortcut": {
+             "mac": "Cmd+Shift+U",
+             "win": "Ctrl+Shift+U"
+           },
+           "commandId": "imageFillCommand"
+         },
+         {
+          "type": "menu",
+          "label": "About",
+          "commandId": "aboutCommand"
+         }
+       ]
+     }
+   ]
 }
