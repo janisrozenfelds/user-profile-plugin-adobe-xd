@@ -26,12 +26,13 @@ async function imageFillCommand(selection) {
 
 
       const collectionRes = await fetch(`${API_URL}/photos/total`)
+      const userSelected = selectedShapes.items.length
       const json = await collectionRes.json()
       await total_collection_pages.push(json.total_pages)
 
       // not selected shapes !
       if (selectedShapes.items.length === 0) {
-        showDialog("#selectShapeDialog", "Please select one or more shapes that you want to be filled with avatars and run the plugin again.\n\nSupported shapes are Rectangle, Ellipse and Path.\n\nBest results are when shapes have equal width and height.");
+        showDialog("#selectShapeDialog", "Oops, something went wrong! Please select one or more shapes to be filled with image.\n\nPlugging supports shapes, rectangles, an ellipse.\n\nAlways stay awesome!");
       }
 
       if (maxImg >= selectedShapes.items.length) {
@@ -53,7 +54,7 @@ async function imageFillCommand(selection) {
           }
           return dataArray
         }
-        return findImageUrl(selectedShapes, shufflePhotos(dataArray))
+        return findImageUrl(selectedShapes, shufflePhotos(dataArray), userSelected)
       }
 
       else {
@@ -66,14 +67,24 @@ async function imageFillCommand(selection) {
 
 }
 
-async function findImageUrl(selection, jsonResponse) {
+async function findImageUrl(selection, jsonResponse, userSelected) {
 
     try {
+        const n = userSelected;
         const photoUrl = [];
+        const photoDownloadLocation = [];
 
         await jsonResponse.forEach(item => {
           photoUrl.push(item.url)
         })
+
+
+        // in wroking process > download_location
+        await jsonResponse.forEach(item => {
+          photoDownloadLocation.push(item.download_location)
+        })
+
+        // console.log(photoDownloadLocation.slice(0, n))
 
         return downloadImage(selection, photoUrl)
 
