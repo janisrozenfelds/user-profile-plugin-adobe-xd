@@ -78,7 +78,6 @@ async function findImageUrl(selection, jsonResponse, userSelected) {
           photoUrl.push(item.url)
         })
 
-
         // in wroking process > download_location
         await jsonResponse.forEach(item => {
           photoDownloadLocation.push(item.download_location)
