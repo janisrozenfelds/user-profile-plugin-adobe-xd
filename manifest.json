@@ -13,8 +13,8 @@
     { "path" : "images/icon@3x.png", "width" : 144, "height" : 144 },
     { "path" : "images/icon@4x.png", "width" : 192, "height" : 192 }
   ],
-  "version" : "0.0.2",
-  "releaseNotes" : "Hello, there are minor changes for a better experience. - preparing to integrate download count and mass image download integration",
+  "version" : "0.0.3",
+  "releaseNotes" : "Hello, API endpoints are added for photo authors to increment the number of downloads a photo has (required API provider). As always stay awesome!",
   "name" : "User Profile",
   "host" : {
     "app" : "XD",
