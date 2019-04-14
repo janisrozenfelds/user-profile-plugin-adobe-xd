@@ -78,12 +78,29 @@ async function findImageUrl(selection, jsonResponse, userSelected) {
           photoUrl.push(item.url)
         })
 
-        // in wroking process > download_location
+        // download location endpoint
         await jsonResponse.forEach(item => {
           photoDownloadLocation.push(item.download_location)
         })
 
-        // console.log(photoDownloadLocation.slice(0, n))
+        // Send api - download_location
+        try {
+          const url = {
+            photos: photoDownloadLocation.slice(0, n)
+          };
+
+          const response = await fetch(`${API_URL}/photos/download_location`, {
+            method: 'post',
+            body:    JSON.stringify(url),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          // const json = await response.json()
+          // console.log(json)
+        } catch (err) {
+          console.log(err)
+        }
 
         return downloadImage(selection, photoUrl)
 

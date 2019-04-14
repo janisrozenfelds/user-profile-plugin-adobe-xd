@@ -14,7 +14,7 @@
     { "path" : "images/icon@4x.png", "width" : 192, "height" : 192 }
   ],
   "version" : "0.0.2",
-  "releaseNotes" : "Hello, there are minor changes for a better experience.\n- preparing to integrate download count and mass image 📸 download integration",
+  "releaseNotes" : "Hello, there are minor changes for a better experience. - preparing to integrate download count and mass image download integration",
   "name" : "User Profile",
   "host" : {
     "app" : "XD",
