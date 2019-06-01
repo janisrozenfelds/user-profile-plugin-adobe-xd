@@ -1,7 +1,7 @@
 {
   "summary" : "Displays generated avatars",
   "website" : "http://janisrozenfelds.com/adobe-xd",
-  "keywords" : [ "face", "icon", "productivity" ],
+  "keywords" : [ "face", "icon", "productivity", "photo", "image", "avatar", "generate", "content" ],
   "languages" : [ "en" ],
   "author" : "Janis Rozenfelds",
   "description" : "User Profile plugin for Adobe XD enables designers to displays beautiful generated avatars in your design prototype.\n\nDesigned for designers and optimized to be simple and fast.\n\nReach out to janis.rozenfelds@gmail.com with any question or just say hello.",
@@ -13,8 +13,8 @@
     { "path" : "images/icon@3x.png", "width" : 144, "height" : 144 },
     { "path" : "images/icon@4x.png", "width" : 192, "height" : 192 }
   ],
-  "version" : "0.0.3",
-  "releaseNotes" : "Hello, API endpoints are added for photo authors to increment the number of downloads a photo has (required API provider). As always stay awesome!",
+  "version" : "0.0.4",
+  "releaseNotes" : "Hello, I am excited to announce a new update to the User Profile plugin.\n\n ● Major update for improving plugin performance for faster-getting 🏃 📷‍ photo data (updated API endpoints). Great start for preparing bigger photo library.\n ● Improving error messages.\n ● Other smaller improvements.\n\n As always stay awesome!",
   "name" : "User Profile",
   "host" : {
     "app" : "XD",
