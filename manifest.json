@@ -8,10 +8,11 @@
   "helpUrl" : "http://janisrozenfelds.com/adobe-xd/how-to-use",
   "main" : "main.js",
   "icons" : [
-    { "path" : "images/icon@1x.png", "width" : 48, "height" : 48 },
-    { "path" : "images/icon@2x.png", "width" : 96, "height" : 96 },
-    { "path" : "images/icon@3x.png", "width" : 144, "height" : 144 },
-    { "path" : "images/icon@4x.png", "width" : 192, "height" : 192 }
+    { "width": 24, "height": 24, "path": "images/icon@1x.png" },
+    { "width": 48, "height": 48, "path": "images/icon@2x.png" },
+    { "width": 96, "height": 96, "path": "images/icon@3x.png" },
+    { "width": 144, "height": 144, "path": "images/icon@4x.png" },
+    { "width": 192, "height": 192, "path": "images/icon@5x.png" }
   ],
   "version" : "0.0.4",
   "releaseNotes" : "Hello, I am excited to announce a new update to the User Profile plugin.\n\n ● Major update for improving plugin performance for faster-getting 🏃 📷‍ photo data (updated API endpoints). Great start for preparing bigger photo library.\n ● Improving error messages.\n ● Other smaller improvements.\n\n As always stay awesome!",
