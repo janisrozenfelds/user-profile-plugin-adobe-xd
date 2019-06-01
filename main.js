@@ -25,18 +25,18 @@ async function imageFillCommand(selection) {
       let dataArray = [];
 
 
-      const collectionRes = await fetch(`${API_URL}/photos/total`)
+      // const collectionRes = await fetch(`${API_URL}/photos/total`)
       const userSelected = selectedShapes.items.length
-      const json = await collectionRes.json()
-      await total_collection_pages.push(json.total_pages)
+      // const json = await collectionRes.json()
+      // await total_collection_pages.push(json.total_pages)
 
       // not selected shapes !
       if (selectedShapes.items.length === 0) {
         showDialog("#selectShapeDialog", "Oops, something went wrong! Please select one or more shapes to be filled with image.\n\nPlugging supports shapes, rectangles, an ellipse.\n\nAlways stay awesome!");
       }
 
-      if (maxImg >= selectedShapes.items.length) {
-        const response = await fetch(`${API_URL}/photos`)
+      if (maxImg >= selectedShapes.items.length && selectedShapes.items.length != 0) {
+        const response = await fetch(`${API_URL}/photos?limit=${userSelected}`)
         const json = await response.json();
 
         await json.data.forEach(item => {
@@ -63,6 +63,7 @@ async function imageFillCommand(selection) {
 
     } catch (err) {
       console.log(err)
+      showDialog("#selectShapeLimitDialog", "Oops, something went wrong! Could be that server is too busy getting photos for you.\n\nTake your time and try again 🙂!");
     }
 
 }
@@ -96,8 +97,10 @@ async function findImageUrl(selection, jsonResponse, userSelected) {
               'Content-Type': 'application/json'
             }
           })
+
           // const json = await response.json()
           // console.log(json)
+
         } catch (err) {
           console.log(err)
         }
