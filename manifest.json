@@ -14,8 +14,8 @@
     { "width": 144, "height": 144, "path": "images/icon@4x.png" },
     { "width": 192, "height": 192, "path": "images/icon@5x.png" }
   ],
-  "version" : "0.0.4",
-  "releaseNotes" : "Hello, I am excited to announce a new update to the User Profile plugin.\n\n ● Major update for improving plugin performance for faster-getting 🏃 📷‍ photo data (updated API endpoints). Great start for preparing bigger photo library.\n ● Improving error messages.\n ● Other smaller improvements.\n\n As always stay awesome!",
+  "version" : "0.0.5",
+  "releaseNotes" : "UI update for Unsplash API requirements 📸 ☕️. This will allow to get from 50 to 5,000 requests 😎 per hour.  Always stay awesome!",
   "name" : "User Profile",
   "host" : {
     "app" : "XD",

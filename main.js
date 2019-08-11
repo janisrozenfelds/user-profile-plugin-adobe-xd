@@ -6,7 +6,7 @@
 // - Email: janis.rozenfelds@gmail.com
 //
 //==============================================
-const localFileSystem = require("uxp").storage.localFileSystem;
+const LocalFileSystem = require("uxp").storage.localFileSystem;
 const { API_URL } = require("./config/config.js")
 const { alert, error } = require("./lib/dialogs.js");
 const { ImageFill } = require("scenegraph");
@@ -20,15 +20,18 @@ async function imageFillCommand(selection) {
 
     try {
       const selectedShapes = selection;
+      const userSelected = selectedShapes.items.length
       const maxImg = 50;
       let total_collection_pages = [];
       let dataArray = [];
 
 
-      // const collectionRes = await fetch(`${API_URL}/photos/total`)
-      const userSelected = selectedShapes.items.length
-      // const json = await collectionRes.json()
-      // await total_collection_pages.push(json.total_pages)
+      // In progress -- reading json from plugin folder
+      // const pluginFolder = await LocalFileSystem.getPluginFolder();
+      // const dbFile = await pluginFolder.getEntry("db/data.json");
+      // const jsonData = await dbFile.read();
+      //console.log(JSON.parse(jsonData))
+
 
       // not selected shapes !
       if (selectedShapes.items.length === 0) {
@@ -38,6 +41,8 @@ async function imageFillCommand(selection) {
       if (maxImg >= selectedShapes.items.length && selectedShapes.items.length != 0) {
         const response = await fetch(`${API_URL}/photos?limit=${userSelected}`)
         const json = await response.json();
+
+        // const json = await JSON.parse(jsonData);
 
         await json.data.forEach(item => {
           dataArray.push(item)
@@ -69,22 +74,26 @@ async function imageFillCommand(selection) {
 }
 
 async function findImageUrl(selection, jsonResponse, userSelected) {
-
     try {
         const n = userSelected;
         const photoUrl = [];
         const photoDownloadLocation = [];
-
         await jsonResponse.forEach(item => {
           photoUrl.push(item.url)
         })
 
-        // download location endpoint
+        // download locatiname: on endpoint
         await jsonResponse.forEach(item => {
           photoDownloadLocation.push(item.download_location)
         })
 
-        // Send api - download_location
+        // Find User name
+        const photographArry = jsonResponse.map(user => {
+          return {
+            userName: user.userName,
+            userLink: user.userLink
+          }
+        });
         try {
           const url = {
             photos: photoDownloadLocation.slice(0, n)
@@ -98,14 +107,11 @@ async function findImageUrl(selection, jsonResponse, userSelected) {
             }
           })
 
-          // const json = await response.json()
-          // console.log(json)
-
         } catch (err) {
           console.log(err)
         }
 
-        return downloadImage(selection, photoUrl)
+        return downloadImage(selection, photoUrl, userSelected, photographArry)
 
     } catch (err) {
         console.log(err.message)
@@ -116,9 +122,41 @@ async function aboutCommand() {
     showDialog("#aboutPluginDialog", `I am Janis 👨‍💻. Creator of this Adobe XD plugin.\n\nThis could not be built without most generous photographers from "Unsplash". Each photo is selected to create a unique collection.`);
 }
 
-function applyImagefill(selection, base64) {
+function applyImagefill(selection, base64, userSelected, photographArry) {
+  const selectedPhotos = photographArry.slice(0, userSelected)
   const imageFill = new ImageFill(`data:image/jpeg;base64,${base64}`);
   selection.fill = imageFill;
+
+  // Dialog
+  // Displays photo credits
+  let dialog
+    function getDialog() {
+        if (!dialog) {
+            dialog =
+            h("dialog", {id: "alertDialog", style: { backgroundColor: "#000000" }},
+              h("div", { style: { borderBottom: "1px solid #4D4D4D", width: "100%", paddingBottom: "10px", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }},
+                h("div", {style: { display: "flex", flexDirection: "column" }},
+                  h("div", {style: { display: "flex", flexDirection: "row" }},
+                    h("h1", {style: { fontSize: "24px", color: "#FFFFFF" }}, "Done 👏 ")
+                  )
+                ),
+                h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "https://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)"),
+              ),
+                h("form", { style: { width: 400 }},
+                 h("div", { style: { display: "flex", flexWrap: "wrap", marginTop: 10, maxHeight: 100, overflowY: "scroll" }},
+                  ...selectedPhotos.map((item) => {
+                    return h("a", {style: { color: "#116cd6" }, href: `${item.userLink}` }, `${item.userName}`, ",")
+                  })
+                )
+              ),
+              h("footer",
+                h("button", { uxpVariant:"cta", onclick() { dialog.close() } }, "Ok")
+              )
+            )
+        }
+        return dialog;
+    }
+    document.body.appendChild(getDialog()).showModal();
 }
 
 function xhrBinary(url) {
@@ -144,14 +182,14 @@ function xhrBinary(url) {
   });
 }
 
-async function downloadImage(selection, jsonResponse) {
+async function downloadImage(selection, jsonResponse, userSelected, photographArry) {
   var selected;
   for (selected in selection.items) {
     try {
       const photoUrl = jsonResponse[selected];
       const photoObj = await xhrBinary(photoUrl);
       const photoObjBase64 = await base64ArrayBuffer(photoObj);
-      applyImagefill(selection.items[selected], photoObjBase64);
+      applyImagefill(selection.items[selected], photoObjBase64, userSelected, photographArry);
 
     } catch (err) {
       error("Error: " + err);
@@ -225,6 +263,29 @@ function showDialog(dialogId, messageText) {
         }
     })
 }
+
+
+//
+// in processs
+// ==========================
+let alertDialog =
+		    h("dialog", {id: "alertDialog", style: { backgroundColor: "#000000" }},
+		   		h("div", { style: { borderBottom: "1px solid #4D4D4D", width: "100%", paddingBottom: "10px", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }},
+              h("div", {style: { display: "flex", flexDirection: "column" }},
+                h("div", {style: { display: "flex", flexDirection: "row" }},
+                  h("h1", {style: { fontSize: "24px", color: "#FFFFFF" }}, "Done 👏 "),
+                )
+              ),
+              h("a", {style: {fontSize: "10px", color: "#116cd6",}, href: "http://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)")
+            ),
+		        h("form", { method:"dialog", style: { width: 400 } },
+		            h("div", {id: "message", style: { color: "#9B9B9B" }, marginTop: 10, maxHeight: 90, overflowY: "scroll"}, "Dialog message is not specified."),
+
+		            h("footer",
+		                h("button", {id: "closeButton", uxpVariant: "cta"}, "DONE"),
+		            )
+		        )
+		    );
 
 let aboutPluginDialog =
         h("dialog", {id: "aboutPluginDialog", style: { backgroundColor: "#000000" }},
@@ -302,6 +363,7 @@ let selectShapeLimitDialog =
 document.body.appendChild(selectShapeDialog);
 document.body.appendChild(aboutPluginDialog);
 document.body.appendChild(selectShapeLimitDialog);
+document.body.appendChild(alertDialog);
 
 module.exports = {
     commands: {
