@@ -1,11 +1,25 @@
 {
+  "id" : "2418aad9",
+  "name" : "User Profile",
+  "version" : "0.0.6",
+  "description" : "User Profile plugin for Adobe XD enables designers to displays beautiful generated avatars in your design prototype.\n\nDesigned for designers and optimized to be simple and fast.\n\nReach out to janis.rozenfelds@gmail.com with any question or just say hello.",
   "summary" : "Displays generated avatars",
-  "website" : "http://janisrozenfelds.com/adobe-xd",
-  "keywords" : [ "face", "icon", "productivity", "photo", "image", "avatar", "generate", "content" ],
+  "releaseNotes" : "UI update and fixes for the latest Adobe XD.  Always stay awesome!",
+  "website" : "https://janisrozenfelds.com/user-profile-plugin",
+  "keywords" : [
+    "face",
+    "icon",
+    "productivity",
+    "photo",
+    "image",
+    "avatar",
+    "generate",
+    "content"
+  ],
+
   "languages" : [ "en" ],
   "author" : "Janis Rozenfelds",
-  "description" : "User Profile plugin for Adobe XD enables designers to displays beautiful generated avatars in your design prototype.\n\nDesigned for designers and optimized to be simple and fast.\n\nReach out to janis.rozenfelds@gmail.com with any question or just say hello.",
-  "helpUrl" : "http://janisrozenfelds.com/adobe-xd/how-to-use",
+  "helpUrl" : "https://janisrozenfelds.com/user-profile-plugin/how-to-use",
   "main" : "main.js",
   "icons" : [
     { "width": 24, "height": 24, "path": "images/icon@1x.png" },
@@ -14,14 +28,10 @@
     { "width": 144, "height": 144, "path": "images/icon@4x.png" },
     { "width": 192, "height": 192, "path": "images/icon@5x.png" }
   ],
-  "version" : "0.0.5",
-  "releaseNotes" : "UI update for Unsplash API requirements 📸 ☕️. This will allow to get from 50 to 5,000 requests 😎 per hour.  Always stay awesome!",
-  "name" : "User Profile",
   "host" : {
     "app" : "XD",
-    "minVersion" : "13.0"
+    "minVersion" : "21.0"
   },
-  "id" : "2418aad9",
   "uiEntryPoints" : [
      {
        "label" : "User Profile",

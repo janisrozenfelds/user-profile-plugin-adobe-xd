@@ -1,7 +1,7 @@
 //
 // Plugin for Adobe XD
 // Author: Janis janisrozenfelds
-// - Web: www.janisrozenfelds.com/adobe-xd
+// - Web: https://janisrozenfelds.com/user-profile-plugin
 // - Twitter: roziits
 // - Email: janis.rozenfelds@gmail.com
 //
@@ -140,7 +140,7 @@ function applyImagefill(selection, base64, userSelected, photographArry) {
                     h("h1", {style: { fontSize: "24px", color: "#FFFFFF" }}, "Done 👏 ")
                   )
                 ),
-                h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "https://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)"),
+                h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "https://janisrozenfelds.com/user-profile-plugin/how-to-use" }, "(?)"),
               ),
                 h("form", { style: { width: 400 }},
                  h("div", { style: { display: "flex", flexWrap: "wrap", marginTop: 10, maxHeight: 100, overflowY: "scroll" }},
@@ -276,7 +276,7 @@ let alertDialog =
                   h("h1", {style: { fontSize: "24px", color: "#FFFFFF" }}, "Done 👏 "),
                 )
               ),
-              h("a", {style: {fontSize: "10px", color: "#116cd6",}, href: "http://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)")
+              h("a", {style: {fontSize: "10px", color: "#116cd6",}, href: "https://janisrozenfelds.com/user-profile-plugin/how-to-use" }, "(?)")
             ),
 		        h("form", { method:"dialog", style: { width: 400 } },
 		            h("div", {id: "message", style: { color: "#9B9B9B" }, marginTop: 10, maxHeight: 90, overflowY: "scroll"}, "Dialog message is not specified."),
@@ -293,19 +293,19 @@ let aboutPluginDialog =
                   h("div", {style: { display: "flex", flexDirection: "column" }},
                     h("div", {style: { display: "flex", flexDirection: "row" }},
                       h("img", {src: "images/icon.png", style: { width: 28, height: 28, marginRight: 10} }),
-                      h("h1", {style: { fontSize: "24px", color: "#FFFFFF" }}, "Hello there 👋 "),
+                      h("h1", {style: { fontSize: "24px", color: "#FFFFFF" }}, "Hello there 👋"),
                     )
-          ),
+                  ),
 
-          h("a", {style: {fontSize: "10px", color: "#116cd6",}, href: "http://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)")
+          h("a", {style: {fontSize: "10px", color: "#116cd6",}, href: "https://janisrozenfelds.com/user-profile-plugin/how-to-use" }, "(?)")
               ),
-            h("form", { method:"dialog", style: { width: 400, textAlign: "left", display: "flex" } },
+            h("form", { method:"dialog", style: { width: 400, textAlign: "left" } },
 
                 h("p", {id: "message", style: { color: "#9B9B9B", paddingBottom: "20px" }}, "Dialog message is not specified."),
 
                   h("h2", {style: { fontSize: "14px", color: "#FFFFFF" }}, "Photo Credits:"),
                   h("p", { style: { color: "#9B9B9B" }}, `All authors of the generated user profile photos can be found in the Photo Credits.`,
-                    h("a", { href: "http://www.janisrozenfelds.com/adobe-xd" }, "👉  Photo collection"),
+                    h("a", { href: "https://janisrozenfelds.com/user-profile-plugin" }, "👉  Photo collection"),
                   ),
 
                 h("footer",
@@ -324,11 +324,13 @@ let selectShapeDialog =
                     )
 					),
 
-					h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "http://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)")
+					h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "https://janisrozenfelds.com/user-profile-plugin/how-to-use" }, "(?)")
 	            ),
-		        h("form", { method:"dialog", style: { paddingTop: "20px", width: 400, textAlign: "left", display: "flex" } },
-
-		            h("img", {src: "images/black.gif", style: { width: 335, height: 120, alignSelf: "center" } }),
+            h("form", { method:"dialog", style: { paddingTop: "20px", width: 400, textAlign: "left" } },
+            
+                h("div", { style: {  display: "flex", alignItems: "center", justifyContent: "center" }},
+                  h("img", {src: "images/black.gif", style: { width: 335, height: 120 } }),
+                ),
 
 		            h("p", {id: "message", style: { color: "#9B9B9B" }}, "Dialog message is not specified."),
 		            h("footer",
@@ -347,9 +349,9 @@ let selectShapeLimitDialog =
                     )
           ),
 
-          h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "http://www.janisrozenfelds.com/adobe-xd/how-to-use" }, "(?)")
+          h("a", {style: { fontSize: "10px", color: "#116cd6",}, href: "https://janisrozenfelds.com/user-profile-plugin/how-to-use" }, "(?)")
               ),
-            h("form", { method:"dialog", style: { paddingTop: "20px", width: 400, textAlign: "left", display: "flex" } },
+            h("form", { method:"dialog", style: { paddingTop: "20px", width: 400, textAlign: "left" } },
 
                 h("p", {id: "message", style: { color: "#9B9B9B" }}, "Dialog message is not specified."),
 
