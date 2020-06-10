@@ -133,7 +133,12 @@ function applyImagefill(selection, base64, userSelected, photographArry) {
     function getDialog() {
         if (!dialog) {
             dialog =
-            h("dialog", {id: "alertDialog", style: { backgroundColor: "#000000" }},
+            h("dialog", {
+	    	id: "alertDialog",
+	    	style: { backgroundColor: "#000000" },
+		// Add a auto close tricker for dialog.
+		onload() { setInterval(() => { dialog.close() }, 1000) }
+	      },
               h("div", { style: { borderBottom: "1px solid #4D4D4D", width: "100%", paddingBottom: "10px", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }},
                 h("div", {style: { display: "flex", flexDirection: "column" }},
                   h("div", {style: { display: "flex", flexDirection: "row" }},
