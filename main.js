@@ -25,14 +25,6 @@ async function imageFillCommand(selection) {
       let total_collection_pages = [];
       let dataArray = [];
 
-
-      // In progress -- reading json from plugin folder
-      // const pluginFolder = await LocalFileSystem.getPluginFolder();
-      // const dbFile = await pluginFolder.getEntry("db/data.json");
-      // const jsonData = await dbFile.read();
-      //console.log(JSON.parse(jsonData))
-
-
       // not selected shapes !
       if (selectedShapes.items.length === 0) {
         showDialog("#selectShapeDialog", "Oops, something went wrong! Please select one or more shapes to be filled with image.\n\nPlugging supports shapes, rectangles, an ellipse.\n\nAlways stay awesome!");
@@ -304,8 +296,12 @@ let aboutPluginDialog =
                 h("p", {id: "message", style: { color: "#9B9B9B", paddingBottom: "20px" }}, "Dialog message is not specified."),
 
                   h("h2", {style: { fontSize: "14px", color: "#FFFFFF" }}, "Photo Credits:"),
-                  h("p", { style: { color: "#9B9B9B" }}, `All authors of the generated user profile photos can be found in the Photo Credits.`,
-                    h("a", { href: "https://janisrozenfelds.com/user-profile-plugin" }, "👉  Photo collection"),
+                  h("p", { style: { color: "#9B9B9B", paddingBottom: "20px" }}, `All authors of the generated user profile photos can be found in the Photo Credits.`, 
+                  h("div", {style: { display: "flex", flexDirection: "row" }},
+                    h("a", { href: "https://janisrozenfelds.com/user-profile-plugin" }, "👉 Photo collection"),
+                    h("div", { style: { marginRight: 10, marginLeft: 10 }}, `|`),
+                    h("a", { href: "https://userprofile.nolt.io" }, "🤘 Give a Feedback!"),
+                    ),
                   ),
 
                 h("footer",

@@ -1,41 +1,19 @@
 {
-  "id" : "2418aad9",
-  "name" : "User Profile",
-  "version" : "0.0.6",
-  "description" : "User Profile plugin for Adobe XD enables designers to displays beautiful generated avatars in your design prototype.\n\nDesigned for designers and optimized to be simple and fast.\n\nReach out to janis.rozenfelds@gmail.com with any question or just say hello.",
-  "summary" : "Displays generated avatars",
-  "releaseNotes" : "UI update and fixes for the latest Adobe XD.  Always stay awesome!",
-  "website" : "https://janisrozenfelds.com/user-profile-plugin",
-  "keywords" : [
-    "face",
-    "icon",
-    "productivity",
-    "photo",
-    "image",
-    "avatar",
-    "generate",
-    "content"
-  ],
-
-  "languages" : [ "en" ],
-  "author" : "Janis Rozenfelds",
-  "helpUrl" : "https://janisrozenfelds.com/user-profile-plugin/how-to-use",
-  "main" : "main.js",
-  "icons" : [
+  "id": "2418aad9",
+  "name": "User Profile",
+  "version": "0.0.6",
+  "icons": [
     { "width": 24, "height": 24, "path": "images/icon@1x.png" },
-    { "width": 48, "height": 48, "path": "images/icon@2x.png" },
-    { "width": 96, "height": 96, "path": "images/icon@3x.png" },
-    { "width": 144, "height": 144, "path": "images/icon@4x.png" },
-    { "width": 192, "height": 192, "path": "images/icon@5x.png" }
+    { "width": 48, "height": 48, "path": "images/icon@2x.png" }
   ],
-  "host" : {
-    "app" : "XD",
-    "minVersion" : "21.0"
+  "host": {
+    "app": "XD",
+    "minVersion": "13.0"
   },
-  "uiEntryPoints" : [
+  "uiEntryPoints": [
      {
-       "label" : "User Profile",
-       "type" : "menu",
+       "label": "User Profile",
+       "type": "menu",
        "menuItems": [
          {
            "type": "menu",
