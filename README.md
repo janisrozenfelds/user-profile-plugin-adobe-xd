@@ -21,4 +21,4 @@ Here you can find the "User Profile XD" plugin for all versions.
 [link to download Adobe XD](https://www.adobe.com/sea/products/xd.html)
 
 **How to use?**
-Most of plugin usability questions will be answered here:  [link](http://www.janisrozenfelds.com/adobe-xd/how-to-use)
+Most of plugin usability questions will be answered here:  [link](http://www.janisrozenfelds.com/user-profile-plugin/how-to-use)
